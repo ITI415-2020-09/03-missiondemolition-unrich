@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Slingshot : MonoBehaviour
 {
-    public GameObject prefabProjectile;
+    public GameObject prefabsProjectile;
 
     public float velocityMult = 4f;
     
@@ -66,6 +66,7 @@ public class Slingshot : MonoBehaviour
             aimingMode = false;
             projectile.GetComponent<Rigidbody>().isKinematic = false;
             projectile.GetComponent<Rigidbody>().velocity = -mouseDelta * velocityMult;
+            FollowCam.S.poi = projectile;
             projectile = null;
         }
     }
