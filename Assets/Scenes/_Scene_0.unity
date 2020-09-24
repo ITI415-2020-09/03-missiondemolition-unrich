@@ -400,7 +400,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6f6ecc5bdd52343b5a1c6444f2e6cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabsProjectile: {fileID: 4420367351420668358, guid: 8872006e669b29146930ed6455b26fe0, type: 3}
+  velocityMult: 4
+  _____________________________: 0
   launchPoint: {fileID: 0}
+  launchPos: {x: 0, y: 0, z: 0}
+  projectile: {fileID: 0}
+  aimingMode: 0
+--- !u!1 &943186761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 943186762}
+  m_Layer: 0
+  m_Name: CloudAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &943186762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943186761}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.3226485, y: 3.2423034, z: 1.9043503}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1492198442
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +543,8 @@ GameObject:
   - component: {fileID: 1630795438}
   - component: {fileID: 1630795437}
   - component: {fileID: 1630795436}
+  - component: {fileID: 1630795439}
+  - component: {fileID: 1630795440}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -579,6 +617,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1630795439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630795435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb625a765f20d241897269dc87f92de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  easing: 0.05
+  minXY: {x: 0, y: 0}
+  _____________________________: 0
+  poi: {fileID: 0}
+  camZ: 0
+--- !u!114 &1630795440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630795435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f81e35a67b4cd54d9d24923cce1733f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numClouds: 40
+  cloudPrefabs:
+  - {fileID: 364301789189781866, guid: 79abe76781fd8c441be967fe635afdef, type: 3}
+  - {fileID: 364301789189781866, guid: f3c80e14f77902640acb712be9f3d8d4, type: 3}
+  - {fileID: 364301789189781866, guid: 4a4bde073e555644481017e959f2d798, type: 3}
+  - {fileID: 364301789189781866, guid: 367ab72a42c775a4aabda38f0948b582, type: 3}
+  - {fileID: 364301789189781866, guid: a6688e531b7fb864ea6087d2cc1f3e48, type: 3}
+  cloudPosMin: {x: -50, y: -5, z: 10}
+  cloudPosMax: {x: 150, y: 100, z: 10}
+  cloudScaleMin: 1
+  cloudScaleMax: 5
+  cloudSpeedMult: 0.5
+  _____________________________: 0
+  cloudInstances: []
 --- !u!1 &1709571235
 GameObject:
   m_ObjectHideFlags: 0
