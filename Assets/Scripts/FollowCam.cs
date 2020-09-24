@@ -31,4 +31,25 @@ public class FollowCam : MonoBehaviour
         transform.position = destination;
         this.GetComponent<Camera>().orthographicSize = destination.y + 10;
     }
+
+    void FixedUpdate()
+    {
+        Vector3 destination;
+        if (poi == null)
+        {
+            destination = Vector3.zero;
+        }
+        else
+        {
+            destination = poi.transform.position;
+        } 
+        if (poi.tag == "Projectile")
+        {
+            if (poi.GetComponent<Rigidbody>().IsSleeping())
+            {
+                poi = null;
+            }
+            return;
+        }
+    }
 }
