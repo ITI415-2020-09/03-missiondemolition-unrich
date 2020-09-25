@@ -13,23 +13,10 @@ public class FollowCam : MonoBehaviour
 
     public GameObject poi;
     public float camZ;
-
     void Awake()
     {
         S = this;
         camZ = this.transform.position.z;
-    }
-
-    void Update()
-    {
-        if (poi == null) return;
-        Vector3 destination = poi.transform.position;
-        destination.x = Mathf.Max(minXY.x, destination.x);
-        destination.y = Mathf.Max(minXY.y, destination.y);
-        destination = Vector3.Lerp(transform.position, destination, easing);
-        destination.z = camZ;
-        transform.position = destination;
-        this.GetComponent<Camera>().orthographicSize = destination.y + 10;
     }
 
     void FixedUpdate()
@@ -42,14 +29,21 @@ public class FollowCam : MonoBehaviour
         else
         {
             destination = poi.transform.position;
-        } 
-        if (poi.tag == "Projectile")
-        {
-            if (poi.GetComponent<Rigidbody>().IsSleeping())
+            if (poi.tag == "Projectile")
             {
-                poi = null;
+                if (poi.GetComponent<Rigidbody>().IsSleeping())
+                {
+                    poi = null;
+                    Debug.Log("found projectile");
+                    return;
+                }
             }
-            return;
         }
+        destination.x = Mathf.Max(minXY.x, destination.x);
+        destination.y = Mathf.Max(minXY.y, destination.y);
+        destination = Vector3.Lerp(transform.position, destination, easing);
+        destination.z = camZ;
+        transform.position = destination;
+        this.GetComponent<Camera>().orthographicSize = destination.y + 10;
     }
 }
